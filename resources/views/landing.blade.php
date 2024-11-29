@@ -4,297 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-</head>
-<style>
-    /* Global Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Header */
-        .header {
-            background-color: #ff5733;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-
-        .header .logo {
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-        }
-
-        .header nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
+    <style>
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
         }
 
-        .header nav ul li {
-            position: relative;
-        }
-
-        .header nav ul li a {
-            text-decoration: none;
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 75vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('http://www.pixelstalk.net/wp-content/uploads/2016/04/Winter-dog-snowflakes-wallpaper-HD.jpg') no-repeat center/cover;
             color: white;
-            font-size: 16px;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .header nav ul li a:hover {
-            background-color: white;
+        .hero-content h1 {
+            font-size: 3rem;
+            margin: 10px 0;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 40px 20px;
+        }
+
+        .service-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
             color: #ff5733;
         }
 
-        .header nav ul li .btn {
-            background-color: #007BFF;
-            padding: 8px 16px;
+        .table {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .table-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .table-cell {
+            flex: 1;
+            text-align: center;
+            margin: 10px;
+            max-width: 30%;
+        }
+
+        .table-cell img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination-item {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            background: #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .pagination-item.active {
+            background: #007bff;
             color: white;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
-
-        .header nav ul li .btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* Responsive Navbar */
-        @media (max-width: 768px) {
-            .header {
-                flex-wrap: wrap;
-            }
-
-            .header nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                width: 100%;
-            }
-
-            .header nav ul li {
-                width: 100%;
-            }
-
-            .header nav ul li a {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-        }
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #f9f9f9;
-}
-
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 75vh; /* Full screen height */
-
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    width: 1400%;
-    max-width: 1200px;
-}
-
-.hero-content img {
-    width: 50%; /* Occupies half the screen */
-    height: 100%;
-    object-fit: cover; /* Ensures the image fills the space without distortion */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.text-content {
-    padding: 20px;
-    width: 50%; /* Occupies half the screen */
-    box-sizing: border-box;
-}
-
-.text-content h1 {
-    font-size: 2.5rem;
-    color: #333;
-}
-
-.text-content h1 span {
-    color: #ff5733; /* Highlighted color */
-}
-
-.text-content p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Services Section */
-.services {
-    display: flex;
-    justify-content: space-around;
-    background-color: #f9f9f9;
-    padding: 20px;
-}
-
-.service-item {
-    text-align: center;
-}
-
-/* Features Section */
-.features {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-.feature-card {
-    background-color: #ff5733;
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.container {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.table {
-  width: 100%;
-  max-width: 1200px;
-  padding: 5px;
-  margin: 10px auto;
-  background-color: #ff5733;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.table-row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 15px 0;
-}
-
-.table-cell {
-  width: 33.33%;
-  text-align: center;
-  padding: 10px;
-}
-
-.table-cell h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.table-cell p {
-  font-size: 16px;
-  color: #666;
-}
-
-.table-cell img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.pagination-item {
-  width: 20px;
-  height: 20px;
-  background-color: #ddd;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.pagination-item.active {
-  background-color : #007bff;
-}
-
-.pagination-item:hover {
-  background-color: #0056b3;
-}
-/* Footer */
-footer {
-  text-align: center;
-  padding: 3px;
-  background-color: rgb(16, 16, 16);
-  color: white;
-}
-
-</style>
+    </style>
+</head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">Golden Pet Care</div>
-        <nav>
-            <ul>
-                <li><a href="{{ route('landing') }}">Home</a></li>
-                <li><a href="{{ route('pricing') }}">Pricing</a></li>
-                <li><a href="{{ route('about') }}">About Us</a></li>
-                <li><a href="{{ route('services') }}">Services</a></li>
-                <li><a href="{{ route('contact') }}">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+    @include('layout.navbar')
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="http://www.pixelstalk.net/wp-content/uploads/2016/04/Winter-dog-snowflakes-wallpaper-HD.jpg" alt="Dog in Winter">
-            <div class="text-content">
-                <h1>Kami Peduli dengan  <span>Hewan Peliharaan Anda</span></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            </div>
+            <h1>Kami Peduli dengan <span>Hewan Peliharaan Anda</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
         </div>
     </section>
-    
 
     <!-- Services Section -->
     <section class="services">
-        <div class="service-item">
-            <h3>RESERVE</h3>
-        </div>
-        <div class="service-item">
-            <h3>MATCH</h3>
-        </div>
-        <div class="service-item">
-            <h3>RELAX</h3>
-        </div>
+        <div class="service-item"><h3>RESERVE</h3></div>
+        <div class="service-item"><h3>MATCH</h3></div>
+        <div class="service-item"><h3>RELAX</h3></div>
     </section>
 
+    <!-- Features Section -->
     <div class="container">
         <div class="table">
           <div class="table-row">
@@ -312,12 +143,12 @@ footer {
             </div>
           </div>
         </div>
-      </div>
-
+      </div>
+@include('layout.kata')
+@include('layout.galery')
+@include('layout.testimoni')
     <!-- Footer -->
-    <footer>
-        <p>Author: Hege Refsnes<br>
-        <a href="mailto:hege@example.com">hege@example.com</a></p>
-      </footer>
+    @include('layout.footer')
+
 </body>
 </html>
