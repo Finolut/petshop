@@ -170,14 +170,14 @@
     <div class="pricing-table">
         <div class="pricing-card">
             <h2><span>Basic</span> Plan</h2>
-            <div class="price">$12 Per Day</div>
+            <div class="price">20k Per hari</div>
             <ul>
                 <li>3 Times Full Diet</li>
                 <li>Medical Checkup</li>
                 <li>Daily Cleaning</li>
                 <li>Extra Activities</li>
             </ul>
-            <button>Choose Plan</button>
+            <button onclick="window.location.href='{{ route('pembayaran') }}'">Choose Plan</button>
         </div>
 
         <div class="pricing-card">

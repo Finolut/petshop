@@ -22,6 +22,18 @@ Route::get('/contact', function () {
     return view('contact'); // Menampilkan contact.blade.php
 })->name('contact');
 
+Route::get('/pembayaran', function () {
+    return view('pembayaran'); // Menampilkan contact.blade.php
+})->name('pembayaran');
+
+Route::get('/form', function () {
+    return view('form'); // Menampilkan contact.blade.php
+})->name('form');
+
+Route::get('/admin', function () {
+    return view('admin.dashboard'); // Menampilkan contact.blade.php
+})->name('admin');
+
 
 Route::get('/login', function () {
     return view('login');
