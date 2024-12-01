@@ -207,5 +207,6 @@
             <button>Choose Plan</button>
         </div>
     </div>
+    @include('layout.footer')
 </body>
 </html>

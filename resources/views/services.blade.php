@@ -3,108 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet House</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Our Popular Services</title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+
+    </style>
 </head>
-<style>
-    /* Global Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+<body class="bg-gray-100">
+    @include('layout.navbar')
 
-/* Header */
-.header {
-    background-color: #ff5733;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
+    <!-- Section Header -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto text-center">
+         <h1 class="text-4xl font-bold">
+          <span class="text-orange-500">
+           |
+          </span>
+          Services
+         </h1>
+         <p class="mt-4 text-gray-600">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+         </p>
+        </div>
+       </section>
 
-.header .logo {
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.header nav ul li {
-    position: relative;
-}
-
-.header nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.header nav ul li a:hover {
-    background-color: white;
-    color: #ff5733;
-}
-
-.header nav ul li .btn {
-    background-color: #007BFF;
-    padding: 8px 16px;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.header nav ul li .btn:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    .header {
-        flex-wrap: wrap;
-    }
-
-    .header nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .header nav ul li {
-        width: 100%;
-    }
-
-    .header nav ul li a {
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
-}
-
-</style>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">Golden Pet Care</div>
-        <nav>
-            <ul>
-                <li><a href="{{ route('landing') }}">Home</a></li>
-                <li><a href="{{ route('pricing') }}">Pricing</a></li>
-                <li><a href="{{ route('about') }}">About Us</a></li>
-                <li><a href="{{ route('services') }}">Services</a></li>
-                <li><a href="{{ route('contact') }}">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Services Section -->
+    <section class=" ">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card -->
+                <div class="relative bg-orange-500 text-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">DOG EXAMINATION</h2>
+                    <p class="text-sm mb-6">Friday, 30 June 2023 15:32 | Super User</p>
+                    <p class="text-sm">
+                        Suspendisse quis nulla eget libero facilisis faucibus. Praesent purus tellus, 
+                        porttitor at eleifend eu, viverra vitae eros. Nullam aliquet ac eros eget bibendum.
+                    </p>
+                </div>
+                <!-- Service Card -->
+                <div class="relative bg-orange-500 text-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">PET VACCINATION</h2>
+                    <p class="text-sm mb-6">Friday, 30 June 2023 15:32 | Super User</p>
+                    <p class="text-sm">
+                        Suspendisse quis nulla eget libero facilisis faucibus. Praesent purus tellus, 
+                        porttitor at eleifend eu, viverra vitae eros. Nullam aliquet ac eros eget bibendum.
+                    </p>
+                </div>
+                <!-- Service Card -->
+                <div class="relative bg-orange-500 text-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">DOGGY GROOMING</h2>
+                    <p class="text-sm mb-6">Friday, 30 June 2023 15:32 | Super User</p>
+                    <p class="text-sm">
+                        Suspendisse quis nulla eget libero facilisis faucibus. Praesent purus tellus, 
+                        porttitor at eleifend eu, viverra vitae eros. Nullam aliquet ac eros eget bibendum.
+                    </p>
+                </div>
+                  <!-- Service Card -->
+                  <div class="relative bg-orange-500 text-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">DOG EXAMINATION</h2>
+                    <p class="text-sm mb-6">Friday, 30 June 2023 15:32 | Super User</p>
+                    <p class="text-sm">
+                        Suspendisse quis nulla eget libero facilisis faucibus. Praesent purus tellus, 
+                        porttitor at eleifend eu, viverra vitae eros. Nullam aliquet ac eros eget bibendum.
+                    </p>
+                </div>
+                  <!-- Service Card -->
+                  <div class="relative bg-orange-500 text-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">DOG EXAMINATION</h2>
+                    <p class="text-sm mb-6">Friday, 30 June 2023 15:32 | Super User</p>
+                    <p class="text-sm">
+                        Suspendisse quis nulla eget libero facilisis faucibus. Praesent purus tellus, 
+                        porttitor at eleifend eu, viverra vitae eros. Nullam aliquet ac eros eget bibendum.
+                    </p>
+                </div>
+                  <!-- Service Card -->
+                  <div class="relative bg-orange-500 text-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">DOG EXAMINATION</h2>
+                    <p class="text-sm mb-6">Friday, 30 June 2023 15:32 | Super User</p>
+                    <p class="text-sm">
+                        Suspendisse quis nulla eget libero facilisis faucibus. Praesent purus tellus, 
+                        porttitor at eleifend eu, viverra vitae eros. Nullam aliquet ac eros eget bibendum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+@include('layout.footer')
 </body>
 </html>
