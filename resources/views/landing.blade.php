@@ -6,7 +6,7 @@
     <title>Pet House</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
+   <style>
         body, html {
             margin: 0;
             padding: 0;
@@ -37,74 +37,7 @@
             max-width: 600px;
         }
 
-        .services {
-            display: flex;
-            justify-content: space-around;
-            background-color: #fff;
-            padding: 40px 20px;
-        }
 
-        .service-item {
-            text-align: center;
-            flex: 1;
-        }
-
-        .service-item h3 {
-            font-size: 1.5rem;
-            color: #ff5733;
-        }
-
-        .table {
-            width: 90%;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        .table-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .table-cell {
-            flex: 1;
-            text-align: center;
-            margin: 10px;
-            max-width: 30%;
-        }
-
-        .table-cell img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .pagination-item {
-            width: 30px;
-            height: 30px;
-            margin: 0 5px;
-            background: #ddd;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .pagination-item.active {
-            background: #007bff;
-            color: white;
-        }
     </style>
 </head>
 <body>
@@ -112,39 +45,80 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Kami Peduli dengan <span>Hewan Peliharaan Anda</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-        </div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold">
+             WE CARE FOR
+             <br/>
+             <span class="text-orange-500">
+              YOUR PET
+             </span>
+            </h1>
+            <div class="bg-[#ff5733] p-6 mt-4 max-w-md mx-auto">
+             <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+             </p>
+            </div>
+           </div>
+          </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services">
-        <div class="service-item"><h3>RESERVE</h3></div>
-        <div class="service-item"><h3>MATCH</h3></div>
-        <div class="service-item"><h3>RELAX</h3></div>
-    </section>
+    <div class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto flex justify-around">
+            <div class="text-center">
+                <div class="relative inline-block">
+                    <i class="fas fa-headset text-4xl"></i>
+                    <span class="absolute top-0 right-0 bg-orange-500 text-white rounded-full px-2">1</span>
+                </div>
+                <h2 class="mt-2">RESERVE</h2>
+            </div>
+            <div class="text-center">
+                <div class="relative inline-block">
+                    <i class="fas fa-heart text-4xl"></i>
+                    <span class="absolute top-0 right-0 bg-orange-500 text-white rounded-full px-2">2</span>
+                </div>
+                <h2 class="mt-2">MATCH</h2>
+            </div>
+            <div class="text-center">
+                <div class="relative inline-block">
+                    <i class="fas fa-tree text-4xl"></i>
+                    <span class="absolute top-0 right-0 bg-orange-500 text-white rounded-full px-2">3</span>
+                </div>
+                <h2 class="mt-2">RELAX</h2>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Features Section -->
-    <div class="container">
-        <div class="table">
-          <div class="table-row">
-            <div class="table-cell">
-              <h2>Dog Examination</h2>
-              <img src="https://imgs.search.brave.com/KOWRTKgtcKq0h-pt5rgwiY1GyQuMXoZgx4wpNJmKEJY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9leGFt/aW5hdGlvbi12ZXQt/ZG9jdG9yLXlvdW5n/LWJlYXV0aWZ1bC13/b21hbi12ZXRlcmlu/YXJ5LWV4YW1pbmVz/LXdoaXRlLXBvb2Rs/ZS1kb2ctbWVkaWNp/bmUtcGV0LWNhcmUt/aGVhbHRoeS1saWZl/c3R5bGUtMjMwODE2/MDE2LmpwZw" alt="Image 1">
-            </div>
-            <div class="table-cell">
-              <h2>Pet Vaccination</h2>
-              <img src="https://smb.ibsrv.net/imageresizer/image/article_manager/1200x1200/9408/457913/heroimage0.468204001639519434.jpg" alt="Image 2">
-            </div>
-            <div class="table-cell">
-              <h2>Doggy Grooming</h2>
-              <img src="https://imgs.search.brave.com/CJrSgtnFzXfEUZslnN-Ll1BM7IJiE0qc83mtT_h7NzI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTAz/NDYxMzAxMi9waG90/by9naXJsLWh1Z2dp/bmctaGVyLWRvZy5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/MWo0TmtLRlVBTWtf/UlI0R1kwT0dMTUFR/ZkNmSVJqRHNMMm1V/U1drYzM1az0" alt="Image 3">
-            </div>
-          </div>
-        </div>
-      </div>
+    
 @include('layout.kata')
+<div class="bg-[#ff5733] py-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
+        <div>
+            <i class="fas fa-cat text-6xl"></i>
+            <p class="text-4xl font-bold mt-4">175</p>
+            <p class="text-xl font-semibold">HAPPY CATS</p>
+        </div>
+        <div>
+            <i class="fas fa-dog text-6xl"></i>
+            <p class="text-4xl font-bold mt-4">240</p>
+            <p class="text-xl font-semibold">SUPER DOGS</p>
+        </div>
+        <div>
+            <i class="fas fa-award text-6xl"></i>
+            <p class="text-4xl font-bold mt-4">45</p>
+            <p class="text-xl font-semibold">AWARDS</p>
+        </div>
+        <div>
+            <i class="fas fa-crown text-6xl"></i>
+            <p class="text-4xl font-bold mt-4">15</p>
+            <p class="text-xl font-semibold">BUSINESS YEARS</p>
+        </div>
+    </div>
+</div>
+
+
 @include('layout.galery')
 @include('layout.testimoni')
     <!-- Footer -->

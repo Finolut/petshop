@@ -82,6 +82,11 @@ body {
         text-align: left;
     }
 }
+nav {
+  position: relative;
+  z-index: 10;
+}
+
 
 </style>
     <!-- Header -->
@@ -97,3 +102,9 @@ body {
             </ul>
         </nav>
     </header>
+
+<script>
+    1document.querySelector("#menu-toggle").addEventListener("click", () => {
+  document.querySelector("#menu").classList.toggle("hidden");
+});
+</script>
