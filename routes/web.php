@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('landing'); // Menampilkan landing.blade.php
@@ -34,9 +35,38 @@ Route::get('/dashboardadmin', function () {
     return view('dashboard');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+use App\Http\Controllers\AuthController;
+
+
+
 Route::get('/register', function () {
-    return view('register');
+    return view('auth.register');
+})->name('register');
+
+Route::post('/register', [AuthController::class, 'register'])->name('users.store');
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard'); // Buatkan dashboard.blade.php
+    })->name('dashboard');
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+
+
+
+use App\Http\Controllers\ReservationController;
+
+Route::get('/pembayaran', [ReservationController::class, 'pembayaran'])->name('pembayaran');
+Route::post('/pembayaran', [ReservationController::class, 'store'])->name('reservation.store');
+
+use App\Http\Controllers\PenitipanController;
+
+Route::resource('penitipan', PenitipanController::class);

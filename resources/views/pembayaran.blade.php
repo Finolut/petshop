@@ -137,6 +137,32 @@
 
         // Initialize
         updateTotalPrice();
+
+        document.getElementById('checkout-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    fetch("{{ route('reservation.store') }}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+        },
+        body: JSON.stringify({ name, email, days })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Checkout berhasil!');
+            window.location.reload();
+        } else {
+            alert('Terjadi kesalahan. Silakan coba lagi.');
+        }
+    });
+});
+
     </script>
 </body>
 </html>

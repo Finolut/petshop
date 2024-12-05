@@ -56,7 +56,7 @@
         Extra Activities
        </li>
       </ul>
-      <button onclick="window.location.href='{{ route('pembayaran') }}'"  class="mt-6 bg-orange-500 text-white py-2 px-4 rounded">
+      <button onclick="window.location.href='{{ route('login') }}'"  class="mt-6 bg-orange-500 text-white py-2 px-4 rounded">
        Order Now
       </button>
      </div>
