@@ -30,10 +30,9 @@ Route::get('/form', function () {
     return view('form'); // Menampilkan contact.blade.php
 })->name('form');
 
-Route::get('/admin', function () {
-    return view('admin.dashboard'); // Menampilkan contact.blade.php
-})->name('admin');
-
+Route::get('/dashboardadmin', function () {
+    return view('dashboard');
+});
 
 Route::get('/login', function () {
     return view('login');
