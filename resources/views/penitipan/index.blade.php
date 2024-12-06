@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Penitipan Hewan</title>
+@extends('layouts.admin')
+
+@section('content')
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,6 +81,7 @@
             <thead>
                 <tr>
                     <th>Nama Hewan</th>
+                    <th>Pemilik</th>
                     <th>Jenis</th>
                     <th>Gender</th>
                     <th>Ras</th>
@@ -95,6 +93,7 @@
                 @foreach($penitipan as $hewan)
                 <tr>
                     <td>{{ $hewan->nama_hewan }}</td>
+                    <td>{{ $hewan->pemilik }}</td>
                     <td>{{ $hewan->jenis }}</td>
                     <td>{{ $hewan->gender }}</td>
                     <td>{{ $hewan->ras }}</td>
@@ -106,5 +105,4 @@
         </table>
         @endif
     </div>
-</body>
-</html>
+    @endsection

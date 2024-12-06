@@ -87,7 +87,7 @@ Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('role.dest
 
 use App\Http\Controllers\ReservationController;
 
-Route::get('/reservationi', [ReservationController::class, 'index'])->name('reservation.index');
+Route::get('/reservationi', [ReservationController::class, 'index'])->name('reservationi.index');
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 
 
@@ -111,5 +111,10 @@ Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi
 
 use App\Http\Controllers\ReservationListController;
 
-// Route untuk halaman daftar reservasi
-Route::get('/listreservasi', [ReservationListController::class, 'index'])->name('reservation.list');
+Route::get('/reservasi', [ReservationListController::class, 'index'])->name('reservasi.index');
+Route::post('/reservasi/{id}/konfirmasi', [ReservationListController::class, 'confirmPayment'])->name('reservasi.konfirmasi');
+
+use App\Http\Controllers\KandangController;
+
+Route::get('/kandang', [KandangController::class, 'index'])->name('kandang.index');
+Route::post('/kandang/{kandang_no}/assign', [KandangController::class, 'assign'])->name('kandang.assign');

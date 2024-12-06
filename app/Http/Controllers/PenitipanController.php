@@ -22,6 +22,7 @@ class PenitipanController extends Controller
     {
         $request->validate([
             'nama_hewan' => 'required|string',
+            'pemilik' => 'required|string',
             'jenis' => 'required|in:anjing,kucing',
             'gender' => 'required|in:jantan,betina',
             'ras' => 'required|string',

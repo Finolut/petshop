@@ -13,6 +13,7 @@ class Penitipan extends Model
 
     protected $fillable = [
         'nama_hewan',
+        'pemilik',
         'jenis',
         'gender',
         'ras',

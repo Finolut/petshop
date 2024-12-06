@@ -41,14 +41,14 @@
                   </a>
               </li>
               <li class="sidebar-item">
-                <a href="{{ route('reservation.index') }}" class="sidebar-link">
+                <a href="{{ route('reservationi.index') }}" class="sidebar-link">
                     <span class="sidebar-icon"></span>
                     <span class="hide-menu">Reservasi user</span>
                 </a>
             </li>            
             
               <li class="sidebar-item">
-                <a href="{{ route('reservation.list') }}" class="sidebar-link">
+                <a href="{{ route('reservasi.index') }}" class="sidebar-link">
                     <span class="sidebar-icon"></span>
                     <span class="hide-menu">Reservasi admin</span>
                 </a>
@@ -56,22 +56,14 @@
             <li class="sidebar-item">
                 <a href="{{ route('penitipan.index') }}" class="sidebar-link">
                     <span class="sidebar-icon"></span>
-                    <span class="hide-menu">penitipan</span>
+                    <span class="hide-menu">Database Kandang</span>
                 </a>
             </li>
-          </ul>
-      </li>
-
-      <li class="nav-small-cap">
-        <span class="hide-menu">Transaksi</span>
-    </li>
-    <li class="sidebar-item">
-        <a class="sidebar-link sidebar-link " href="{{ route('transaksi.index') }}" aria-expanded="false">
-            <span class="aside-icon p-2 bg-primary-subtle rounded-1">
-                <iconify-icon icon="solar:screencast-2-line-duotone" class="fs-6"></iconify-icon>
-            </span>
-            <span class="hide-menu ps-1">Pengadaan</span>
-        </a>
-    </li>
+            <li class="sidebar-item">
+                <a href="{{ route('kandang.index') }}" class="sidebar-link">
+                    <span class="sidebar-icon"></span>
+                    <span class="hide-menu">Kandang</span>
+                </a>
+            </li>  
   </ul>
 </nav>

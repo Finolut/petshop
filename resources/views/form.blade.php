@@ -83,6 +83,7 @@
             <thead>
                 <tr>
                     <th>Nama Hewan</th>
+                    <th>pemilik</th>
                     <th>Jenis</th>
                     <th>Gender</th>
                     <th>Ras</th>
@@ -94,6 +95,7 @@
                 @foreach($penitipan as $hewan)
                 <tr>
                     <td>{{ $hewan->nama_hewan }}</td>
+                    <td>{{ $hewan->pemilik }}</td>
                     <td>{{ $hewan->jenis }}</td>
                     <td>{{ $hewan->gender }}</td>
                     <td>{{ $hewan->ras }}</td>
@@ -110,6 +112,10 @@
             <div class="form-group">
                 <label for="nama_hewan">Nama Hewan</label>
                 <input type="text" name="nama_hewan" id="nama_hewan" required>
+            </div>
+            <div class="form-group">
+                <label for="pemilik">Pemilik</label>
+                <input type="text" name="pemilik" id="pemilik" required>
             </div>
             <div class="form-group">
                 <label for="jenis">Jenis Hewan</label>
