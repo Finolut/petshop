@@ -3,25 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reservation;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
-    public function pembayaran()
+
+    public function index()
+{
+    $reservations = DB::table('reservations')->get();
+    return view('reservation.index', compact('reservations'));
+}
+
+    public function create()
     {
-        return view('pembayaran');
+        return view('reservasi');
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
+        $request->validate([
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'days' => 'required|integer|min:1',
+            'kelas' => 'required|in:basic plan,medium plan,pro plan,vip plan',
         ]);
 
-        Reservation::create($validated);
+        DB::table('reservations')->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'days' => $request->days,
+            'kelas' => $request->kelas,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
-        return redirect()->route('form')->with('success', 'Reservation berhasil dibuat!');
+        return response()->json(['success' => true, 'message' => 'Reservation successful']);
     }
 }

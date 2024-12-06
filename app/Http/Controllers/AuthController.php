@@ -31,13 +31,23 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-
+    
         if (Auth::attempt($request->only('username', 'password'))) {
+            // Ambil data user yang sedang login
+            $user = Auth::user();
+    
+            // Simpan data user ke session
+            session([
+                'user.username' => $user->username,
+                'user.role' => $user->role,
+            ]);
+    
             return redirect()->route('dashboard');
         }
-
+    
         return back()->withErrors(['username' => 'Username atau password salah.']);
     }
+    
 
     public function logout()
     {

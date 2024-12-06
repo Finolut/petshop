@@ -9,99 +9,86 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index()
-{
-    // Menggunakan raw query untuk mengambil data user dan role
-    $users = DB::select('
-        SELECT u.*, r.nama_role
-        FROM user u
-        JOIN role r ON u.idrole = r.idrole
-    ');
-
-    // Mengambil semua role
-    $roles = DB::select('SELECT * FROM role');
-
-    return view('user.user', compact('users', 'roles'));
-}
-
-public function store(Request $request)
-{
-    // Validasi input
-    $request->validate([
-        'username' => 'required|unique:user,username|max:45',
-        'password' => 'required|min:6',
-        'idrole' => 'required|exists:role,idrole',
-    ]);
-
-    // Insert ke database menggunakan raw query
-    DB::insert("
-        INSERT INTO user (username, password, idrole)
-        VALUES (?, ?, ?)
-    ", [
-        $request->username,
-        Hash::make($request->password),
-        $request->idrole,
-    ]);
+    {
+        // Mengambil semua data user
+        $users = DB::table('users')->get();
+    
+        return view('user.user', compact('users'));
+    }
     
 
-    return redirect()->route('users.index')->with('success', 'User berhasil ditambahkan');
-}
+    public function store(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'username' => 'required|unique:users,username|max:255',
+            'password' => 'required|min:6',
+            'role' => 'required|in:customer,admin,pegawai', // Sesuai dengan ENUM di database
+        ]);
+    
+        // Simpan data ke database
+        DB::table('users')->insert([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    
+        return redirect()->route('users.index')->with('success', 'User berhasil ditambahkan');
+    }
+    
 
 // Tampilkan halaman edit user
 public function edit($id)
 {
     // Ambil data user berdasarkan id
-    $user = DB::selectOne("SELECT * FROM user WHERE iduser = ?", [$id]);
+    $user = DB::table('users')->where('id', $id)->first();
 
-    // Ambil data role untuk dropdown
-    $roles = DB::select("SELECT * FROM role");
+    if (!$user) {
+        return redirect()->route('users.index')->with('error', 'User tidak ditemukan');
+    }
 
-    return view('user.edit', compact('user', 'roles'));
+    return view('user.edit', compact('user'));
 }
+
 
 // Update data user
 public function update(Request $request, $id)
 {
     // Validasi input
     $request->validate([
-        'username' => 'required|max:45|unique:user,username,' . $id . ',iduser',
-        'idrole' => 'required|exists:role,idrole',
+        'username' => 'required|max:255|unique:users,username,' . $id,
+        'role' => 'required|in:customer,admin,pegawai',
     ]);
 
-    // Jika password diisi, hash dan update
+    // Siapkan data untuk update
+    $data = [
+        'username' => $request->username,
+        'role' => $request->role,
+        'updated_at' => now(),
+    ];
+
+    // Jika password diisi, hash dan tambahkan ke data
     if ($request->password) {
-        DB::update("
-            UPDATE user
-            SET username = ?, password = ?, idrole = ?
-            WHERE iduser = ?
-        ", [
-            $request->username,
-            Hash::make($request->password),
-            $request->idrole,
-            $id,
-        ]);
-    } else {
-        // Jika password tidak diisi, update data kecuali password
-        DB::update("
-            UPDATE user
-            SET username = ?, idrole = ?
-            WHERE iduser = ?
-        ", [
-            $request->username,
-            $request->idrole,
-            $id,
-        ]);
+        $data['password'] = Hash::make($request->password);
     }
 
-    return redirect()->route('user.user')->with('success', 'User berhasil diperbarui');
+    // Update data di database
+    DB::table('users')->where('id', $id)->update($data);
+
+    return redirect()->route('users.index')->with('success', 'User berhasil diperbarui');
 }
+
 
 // Hapus data user
 public function destroy($id)
 {
-    DB::delete("DELETE FROM user WHERE iduser = ?", [$id]);
+    DB::table('users')->where('id', $id)->delete();
 
-    return redirect()->route('user.index')->with('success', 'User berhasil dihapus');
+    return redirect()->route('users.index')->with('success', 'User berhasil dihapus');
 }
+
 
 public function register(Request $request)
 {

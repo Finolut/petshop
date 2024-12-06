@@ -22,13 +22,15 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="idrole">Role</label>
-                <select class="form-control" id="idrole" name="idrole" required>
+                <label for="role">Role</label>
+                <select class="form-control" id="role" name="role" required>
                     <option value="" disabled selected>-- Pilih Role --</option>
-                    @foreach($roles as $role)
-                        <option value="{{ $role->idrole }}">{{ $role->nama_role }}</option>
-                    @endforeach
+                    <option value="customer">Customer</option>
+                    <option value="admin">Admin</option>
+                    <option value="pegawai">Pegawai</option>
                 </select>
+            </div>
+            
             </div>
             <button type="submit" class="btn btn-primary btn-block">Simpan</button>
         </form>
@@ -51,21 +53,21 @@
             <tbody>
                 @foreach ($users as $user)
                 <tr>
-                    <th scope="row">{{ $user->iduser }}</th>
+                    <td>{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
-                    <td>{{ $user->idrole }}</td>
+                    <td>{{ $user->role }}</td>
                     <td class="text-center">
-                        <td class="text-center">
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('barang.destroy', $user->iduser) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">Delete</button>
-                            </form>
-                        </td>
-                        
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus user ini?')">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
+            
         </table>
     </div>
 </div>

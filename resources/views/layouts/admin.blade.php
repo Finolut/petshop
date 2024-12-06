@@ -41,14 +41,14 @@
   
             <!-- User Info -->
             <div>
-              {{-- <h6 class="fw-bold fs-4 mb-1 profile-name"> --}}
-                {{ session('user.username', 'Guest') }}
+              <h6>
+                  {{ session('user.username', 'Guest') }}
               </h6>
               <p class="fs-3 lh-base mb-0 profile-subtext">
-                {{ session('user.role', 'Role Tidak Ditemukan') }}
+                  {{ session('user.role', 'Role Tidak Ditemukan') }}
               </p>
-            </div>
           </div>
+          
   
           <!-- Dropdown Button -->
           <div class="dropdown">

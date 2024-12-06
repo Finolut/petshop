@@ -31,9 +31,6 @@ Route::get('/form', function () {
     return view('form'); // Menampilkan contact.blade.php
 })->name('form');
 
-Route::get('/dashboardadmin', function () {
-    return view('dashboard');
-});
 
 use App\Http\Controllers\AuthController;
 
@@ -62,11 +59,49 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-use App\Http\Controllers\ReservationController;
+// use App\Http\Controllers\ReservationController;
 
-Route::get('/pembayaran', [ReservationController::class, 'pembayaran'])->name('pembayaran');
-Route::post('/pembayaran', [ReservationController::class, 'store'])->name('reservation.store');
+// Route::get('/pembayaran', [ReservationController::class, 'pembayaran'])->name('pembayaran');
+// Route::post('/pembayaran', [ReservationController::class, 'store'])->name('reservation.store');
 
 use App\Http\Controllers\PenitipanController;
 
 Route::resource('penitipan', PenitipanController::class);
+
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Menampilkan semua users
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create'); // Form untuk menambahkan users
+Route::post('/users', [UserController::class, 'store'])->name('users.store'); // Menyimpan users baru
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit'); // Form untuk mengedit users
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update'); // Mengupdate users yang sudah ada
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy'); // Menghapus vendor
+
+use App\Http\Controllers\RoleController;
+
+Route::get('/role', [RoleController::class, 'index'])->name('role.index'); // Menampilkan semua role
+Route::get('/role/create', [RoleController::class, 'create'])->name('role.create'); // Form untuk menambahkan role
+Route::post('/role', [RoleController::class, 'store'])->name('role.store'); // Menyimpan role baru
+Route::get('/role/{id}/edit', [RoleController::class, 'edit'])->name('role.edit'); // Form untuk mengedit role
+Route::put('/role/{id}', [RoleController::class, 'update'])->name('role.update'); // Mengupdate role yang sudah ada
+Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('role.destroy'); // Menghapus vendor
+
+use App\Http\Controllers\ReservationController;
+
+Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservation.create');
+Route::post('/reservations', [ReservationController::class, 'store'])->name('reservation.store');
+
+Route::get('/reservasi', [ReservationController::class, 'index'])->name('reservation.index');
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    // Daftar penitipan hewan
+    Route::get('/penitipan', [PenitipanController::class, 'index'])->name('penitipan.index');
+
+    // Form untuk menambah penitipan hewan
+    Route::get('/penitipan/create', [PenitipanController::class, 'create'])->name('penitipan.create');
+
+    // Proses penyimpanan data penitipan hewan
+    Route::post('/penitipan', [PenitipanController::class, 'store'])->name('penitipan.store');
+});
