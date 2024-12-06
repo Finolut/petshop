@@ -87,10 +87,8 @@ Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('role.dest
 
 use App\Http\Controllers\ReservationController;
 
-Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservation.create');
-Route::post('/reservations', [ReservationController::class, 'store'])->name('reservation.store');
-
-Route::get('/reservasi', [ReservationController::class, 'index'])->name('reservation.index');
+Route::get('/reservationi', [ReservationController::class, 'index'])->name('reservation.index');
+Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 
 
 
@@ -105,3 +103,13 @@ Route::middleware(['auth'])->group(function () {
     // Proses penyimpanan data penitipan hewan
     Route::post('/penitipan', [PenitipanController::class, 'store'])->name('penitipan.store');
 });
+
+use App\Http\Controllers\TransaksiController;
+
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+
+
+use App\Http\Controllers\ReservationListController;
+
+// Route untuk halaman daftar reservasi
+Route::get('/listreservasi', [ReservationListController::class, 'index'])->name('reservation.list');

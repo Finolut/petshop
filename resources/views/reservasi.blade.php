@@ -34,21 +34,38 @@
             <div class="form-group">
                 <label for="kelas">Pilih Kelas</label>
                 <select class="form-control" id="kelas" name="kelas" required>
-                    <option value="basic plan">Basic Plan</option>
-                    <option value="medium plan">Medium Plan</option>
-                    <option value="pro plan">Pro Plan</option>
-                    <option value="vip plan">VIP Plan</option>
+                    <option value="basic plan" data-price="10000">Basic Plan (Rp 10.000)</option>
+                    <option value="medium plan" data-price="15000">Medium Plan (Rp 15.000)</option>
+                    <option value="pro plan" data-price="20000">Pro Plan (Rp 20.000)</option>
+                    <option value="vip plan" data-price="30000">VIP Plan (Rp 30.000)</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="days">Jumlah Hari</label>
                 <input type="number" class="form-control" id="days" name="days" min="1" value="1" required>
             </div>
+            <div class="form-group">
+                <label for="total">Total Harga</label>
+                <input type="text" class="form-control" id="total" readonly>
+            </div>
             <button type="submit" class="btn btn-primary btn-block">Checkout</button>
         </form>
     </div>
 
     <script>
+        const kelasSelect = document.getElementById('kelas');
+        const daysInput = document.getElementById('days');
+        const totalInput = document.getElementById('total');
+
+        function calculateTotal() {
+            const price = parseInt(kelasSelect.options[kelasSelect.selectedIndex].dataset.price);
+            const days = parseInt(daysInput.value);
+            totalInput.value = 'Rp ' + (price * days).toLocaleString();
+        }
+
+        kelasSelect.addEventListener('change', calculateTotal);
+        daysInput.addEventListener('input', calculateTotal);
+
         document.getElementById('reservation-form').addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -75,6 +92,9 @@
                     }
                 });
         });
+
+        // Initialize total on page load
+        calculateTotal();
     </script>
 </body>
 </html>

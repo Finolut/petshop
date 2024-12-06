@@ -8,35 +8,29 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Daftar Reservasi</h2>
-        <table class="table table-bordered table-striped">
+        <h2 class="text-center">Daftar Reservasi</h2>
+        <table class="table table-bordered mt-4">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Nama</th>
                     <th>Email</th>
-                    <th>Jumlah Hari</th>
                     <th>Kelas</th>
-                    <th>Dibuat Pada</th>
-                    <th>Diperbarui Pada</th>
+                    <th>Jumlah Hari</th>
+                    <th>Total Harga</th>
+                    <th>Tanggal Reservasi</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($reservations as $reservation)
+                @foreach($reservations as $reservation)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $reservation->name }}</td>
                         <td>{{ $reservation->email }}</td>
-                        <td>{{ $reservation->days }}</td>
                         <td>{{ $reservation->kelas }}</td>
+                        <td>{{ $reservation->days }}</td>
+                        <td>Rp {{ number_format($reservation->total_harga, 0, ',', '.') }}</td>
                         <td>{{ $reservation->created_at }}</td>
-                        <td>{{ $reservation->updated_at }}</td>
                     </tr>
-                @empty
-                    <tr>
-                        <td colspan="7" class="text-center">Tidak ada data reservasi.</td>
-                    </tr>
-                @endforelse
+                @endforeach
             </tbody>
         </table>
     </div>

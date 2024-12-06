@@ -15,7 +15,7 @@ class PenitipanController extends Controller
 
     public function create()
     {
-        return view('penitipan.create');
+        return view('form');
     }
 
     public function store(Request $request)
