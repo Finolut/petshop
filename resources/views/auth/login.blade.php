@@ -64,7 +64,7 @@
                                         <hr class="mt-5 mb-4 border-secondary-subtle">
                                         <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-center">
                                           <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-center">
-                                            <a href="{{ route('register') }}" class="link-secondary text-decoration-none">buat akun</a>
+                                            <a href="{{ route('auth.register') }}" class="link-secondary text-decoration-none">buat akun</a>
                                         </div>
                                         </div>
                                     </div>

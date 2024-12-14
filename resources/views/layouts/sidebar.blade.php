@@ -28,6 +28,13 @@
           </a>
           <ul aria-expanded="false" class="collapse first-level">
     
+            <li class="sidebar-item">
+                <a href="{{ route('form.payment') }}" class="sidebar-link">
+
+                    <span class="sidebar-icon"></span>
+                    <span class="hide-menu">email</span>
+                </a>
+            </li>
               <li class="sidebar-item">
                   <a href="{{ route('role.index') }}" class="sidebar-link">
                       <span class="sidebar-icon"></span>
@@ -41,7 +48,7 @@
                   </a>
               </li>
               <li class="sidebar-item">
-                <a href="{{ route('reservationi.index') }}" class="sidebar-link">
+                <a href="{{ route('reservation.index') }}" class="sidebar-link">
                     <span class="sidebar-icon"></span>
                     <span class="hide-menu">Reservasi user</span>
                 </a>

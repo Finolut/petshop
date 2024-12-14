@@ -10,48 +10,62 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function register(Request $request)
-    {
-        $request->validate([
-            'username' => 'required|unique:users',
-            'password' => 'required|min:6',
-        ]);
+{
+    // Validate input
+    $request->validate([
+        'username' => 'required|unique:users,username|max:255',
+        'email' => 'required|email|unique:users,email|max:255', // Validate email
+        'password' => 'required|min:6',
+    ]);
 
-        User::create([
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'role' => 'customer',
-        ]);
+    // Store user data with email and default 'customer' role
+    User::create([
+        'username' => $request->username,
+        'email' => $request->email,  // Save email
+        'password' => Hash::make($request->password),
+        'role' => 'customer', // Default role
+    ]);
 
-        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
-    }
+    // Redirect to login page with success message
+    return redirect()->route('login')->with('success', 'Akun berhasil dibuat, silakan login.');
+}
 
-    public function login(Request $request)
-    {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-    
-        if (Auth::attempt($request->only('username', 'password'))) {
-            // Ambil data user yang sedang login
-            $user = Auth::user();
-    
-            // Simpan data user ke session
-            session([
-                'user.username' => $user->username,
-                'user.role' => $user->role,
-            ]);
-    
-            return redirect()->route('dashboard');
+
+public function login(Request $request)
+{
+    $request->validate([
+        'username' => 'required',
+        'password' => 'required',
+    ]);
+
+    if (Auth::attempt($request->only('username', 'password'))) {
+        // Ambil data user yang sedang login
+        $user = User::find(Auth::id());
+
+        if (!$user) {
+            return back()->withErrors(['user' => 'User tidak ditemukan.']);
         }
-    
-        return back()->withErrors(['username' => 'Username atau password salah.']);
+
+        // Redirect berdasarkan role
+        if (in_array($user->role, ['admin', 'pegawai'])) {
+            return redirect()->route('dashboard'); // Route untuk admin dan pegawai
+        }
+
+        // Default redirect untuk selain admin/pegawai
+        return redirect()->route('reservation.index'); // Route default
     }
+
+    return back()->withErrors(['username' => 'Username atau password salah.']);
+}
+
+    
+    
+
     
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('landing');
     }
 }

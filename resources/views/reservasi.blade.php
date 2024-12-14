@@ -22,7 +22,8 @@
 <body>
     <div class="form-container">
         <h2 class="text-center">Reservasi</h2>
-        <form id="reservation-form">
+        <form id="reservation-form" action="{{ route('reservation.store') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="name">Nama</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -48,7 +49,10 @@
                 <label for="total">Total Harga</label>
                 <input type="text" class="form-control" id="total" readonly>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Checkout</button>
+            <a href="{{ route('payment') }}" class="btn btn-primary btn-block">
+                <button type="submit">Checkout</button>
+              </a>
+              
         </form>
     </div>
 

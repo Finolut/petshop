@@ -19,5 +19,7 @@ class Penitipan extends Model
         'ras',
         'ukuran',
         'warna',
+        'kandang_no', // Tambahkan ini
     ];
+    
 }

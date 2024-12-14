@@ -147,7 +147,9 @@
                 <label for="warna">Warna</label>
                 <input type="text" name="warna" id="warna" required>
             </div>
-            <button type="submit" class="btn">Kirim</button>
+            <a href="{{ route('ucapan') }}" class="btn btn-primary btn-block">
+                <button type="submit">Kirim</button>
+              </a>
         </form>
         @endif
     </div>

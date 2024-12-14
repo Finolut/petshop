@@ -10,11 +10,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        // Mengambil semua data user
-        $users = DB::table('users')->get();
-    
+        $users = \App\Models\User::all();
         return view('user.user', compact('users'));
     }
+    
     
 
     public function store(Request $request)

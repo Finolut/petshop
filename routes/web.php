@@ -31,22 +31,44 @@ Route::get('/form', function () {
     return view('form'); // Menampilkan contact.blade.php
 })->name('form');
 
+Route::get('/payment', function () {
+    return view('payment'); // Menampilkan contact.blade.php
+})->name('payment');
+
+Route::get('/ucapan', function () {
+    return view('ucapan'); // Menampilkan contact.blade.php
+})->name('ucapan');
 
 use App\Http\Controllers\AuthController;
 
 
 
+
 Route::get('/register', function () {
     return view('auth.register');
-})->name('register');
+})->name('auth.register');
 
-Route::post('/register', [AuthController::class, 'register'])->name('users.store');
+Route::post('/register', [AuthController::class, 'register'])->name('register.store');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+use App\Http\Controllers\ReservationController;
 
 Route::get('/login', function () {
-    return view('auth.login');
+    return view('Auth.login');
 })->name('login');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login.store');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard'); // View dashboard
+    })->name('dashboard')->middleware('role:admin,pegawai');
+
+});
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
+Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
@@ -85,10 +107,9 @@ Route::get('/role/{id}/edit', [RoleController::class, 'edit'])->name('role.edit'
 Route::put('/role/{id}', [RoleController::class, 'update'])->name('role.update'); // Mengupdate role yang sudah ada
 Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('role.destroy'); // Menghapus vendor
 
-use App\Http\Controllers\ReservationController;
 
-Route::get('/reservationi', [ReservationController::class, 'index'])->name('reservationi.index');
-Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
+
+
 
 
 
@@ -102,11 +123,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Proses penyimpanan data penitipan hewan
     Route::post('/penitipan', [PenitipanController::class, 'store'])->name('penitipan.store');
+
+    Route::delete('/penitipan/{id}', [PenitipanController::class, 'destroy'])->name('penitipan.destroy');
 });
-
-use App\Http\Controllers\TransaksiController;
-
-Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
 
 
 use App\Http\Controllers\ReservationListController;
@@ -115,6 +134,15 @@ Route::get('/reservasi', [ReservationListController::class, 'index'])->name('res
 Route::post('/reservasi/{id}/konfirmasi', [ReservationListController::class, 'confirmPayment'])->name('reservasi.konfirmasi');
 
 use App\Http\Controllers\KandangController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/kandang', [KandangController::class, 'index'])->name('kandang.index');
 Route::post('/kandang/{kandang_no}/assign', [KandangController::class, 'assign'])->name('kandang.assign');
+
+Route::get('/form-bukti-pembayaran', function () {
+    return view('emails.payment_notification');
+})->name('form.payment');
+
+// Proses unggahan bukti pembayaran
+Route::middleware('auth')->post('/upload-bukti-pembayaran', [PaymentController::class, 'BuktiPembayaran'])
+    ->name('upload.payment');

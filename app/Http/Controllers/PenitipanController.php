@@ -9,6 +9,7 @@ class PenitipanController extends Controller
 {
     public function index()
     {
+        // Ambil data penitipan beserta nomor kandang
         $penitipan = Penitipan::all();
         return view('penitipan.index', compact('penitipan'));
     }
@@ -29,9 +30,21 @@ class PenitipanController extends Controller
             'ukuran' => 'required|in:kecil,sedang,besar',
             'warna' => 'required|string',
         ]);
-
+    
         Penitipan::create($request->all());
-
-        return redirect()->route('landing')->with('success', 'Data hewan berhasil disimpan.');
+    
+        return redirect()->route('ucapan')->with('success', 'Data hewan berhasil disimpan.');
     }
+    
+
+    public function destroy($id)
+{
+    $hewan = Penitipan::findOrFail($id);
+
+    // Hapus data hewan
+    $hewan->delete();
+
+    return redirect()->route('penitipan.index')->with('success', 'Data hewan berhasil dihapus.');
+}
+
 }
