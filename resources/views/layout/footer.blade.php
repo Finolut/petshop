@@ -111,6 +111,7 @@
       Copyright 2017 © Pet House All Rights Reserved.
      </p>
      <div class="flex space-x-4">
+      <a href="{{ route('admin.login') }}" class="text-white font-bold hover:text-orange-500">Admin</a>
       <i class="fab fa-facebook-f text-white">
       </i>
       <i class="fab fa-skype text-white">

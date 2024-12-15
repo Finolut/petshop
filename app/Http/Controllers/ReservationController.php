@@ -44,7 +44,9 @@ public function store(Request $request)
         'updated_at' => now(),
     ]);
 
-    return response()->json(['success' => true, 'message' => 'Reservasi berhasil']);
+    // Return JSON response for AJAX success
+    return response()->json(['success' => true]);
 }
+
 
 }

@@ -29,8 +29,7 @@
           <ul aria-expanded="false" class="collapse first-level">
     
             <li class="sidebar-item">
-                <a href="{{ route('form.payment') }}" class="sidebar-link">
-
+                <a href="{{ route('products.bukti') }}" class="sidebar-link">
                     <span class="sidebar-icon"></span>
                     <span class="hide-menu">email</span>
                 </a>

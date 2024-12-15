@@ -49,10 +49,7 @@
                 <label for="total">Total Harga</label>
                 <input type="text" class="form-control" id="total" readonly>
             </div>
-            <a href="{{ route('payment') }}" class="btn btn-primary btn-block">
-                <button type="submit">Checkout</button>
-              </a>
-              
+            <button type="submit" class="btn btn-primary btn-block">Checkout</button>
         </form>
     </div>
 
@@ -71,31 +68,31 @@
         daysInput.addEventListener('input', calculateTotal);
 
         document.getElementById('reservation-form').addEventListener('submit', function (event) {
-            event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const days = document.getElementById('days').value;
-            const kelas = document.getElementById('kelas').value;
+    const formData = new FormData(this);
 
-            fetch("{{ route('reservation.store') }}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: JSON.stringify({ name, email, days, kelas })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Reservasi berhasil!');
-                        window.location.reload();
-                    } else {
-                        alert('Terjadi kesalahan. Silakan coba lagi.');
-                    }
-                });
-        });
+    fetch("{{ route('reservation.store') }}", {
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Reservasi berhasil!');
+            window.location.href = "{{ route('products.index') }}"; // Redirect to products.index after success
+        } else {
+            alert('Terjadi kesalahan. Silakan coba lagi.');
+        }
+    })
+    .catch(error => {
+        alert('Terjadi kesalahan: ' + error);
+    });
+});
+
 
         // Initialize total on page load
         calculateTotal();

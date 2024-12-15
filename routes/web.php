@@ -1,148 +1,95 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\{
+    AuthController,
+    UserController,
+    RoleController,
+    PenitipanController,
+    ReservationController,
+    ReservationListController,
+    KandangController,
+    ProductController
+};
 
-Route::get('/', function () {
-    return view('landing'); // Menampilkan landing.blade.php
-})->name('landing');
-
-Route::get('/pricing', function () {
-    return view('pricing'); // Menampilkan pricing.blade.php
-})->name('pricing');
-
-Route::get('/about', function () {
-    return view('about'); // Menampilkan about.blade.php
-})->name('about');
-
-Route::get('/services', function () {
-    return view('services'); // Menampilkan services.blade.php
-})->name('services');
-
-Route::get('/contact', function () {
-    return view('contact'); // Menampilkan contact.blade.php
-})->name('contact');
-
-Route::get('/pembayaran', function () {
-    return view('pembayaran'); // Menampilkan contact.blade.php
-})->name('pembayaran');
-
-Route::get('/form', function () {
-    return view('form'); // Menampilkan contact.blade.php
-})->name('form');
-
-Route::get('/payment', function () {
-    return view('payment'); // Menampilkan contact.blade.php
-})->name('payment');
-
-Route::get('/ucapan', function () {
-    return view('ucapan'); // Menampilkan contact.blade.php
-})->name('ucapan');
-
-use App\Http\Controllers\AuthController;
+// Public Routes
+Route::view('/', 'landing')->name('landing');
+Route::view('/pricing', 'pricing')->name('pricing');
+Route::view('/about', 'about')->name('about');
+Route::view('/services', 'services')->name('services');
+Route::view('/contact', 'contact')->name('contact');
+Route::view('/pembayaran', 'pembayaran')->name('pembayaran');
+Route::view('/form', 'form')->name('form');
+Route::view('/payment', 'payment')->name('payment');
+Route::view('/ucapan', 'ucapan')->name('ucapan');
 
 
-
-
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('auth.register');
-
+// Authentication Routes
+Route::view('/register', 'auth.register')->name('auth.register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.store');
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-use App\Http\Controllers\ReservationController;
-
-Route::get('/login', function () {
-    return view('Auth.login');
-})->name('login');
-
+Route::view('/login', 'auth.login')->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.store');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Dashboard (with Role Middleware)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard'); // View dashboard
-    })->name('dashboard')->middleware('role:admin,pegawai');
-
+    Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('role:admin,pegawai');
 });
+
+// Reservation Routes
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard'); // Buatkan dashboard.blade.php
-    })->name('dashboard');
-
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// User Management Routes
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/create', [UserController::class, 'create'])->name('create');
+    Route::post('/', [UserController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [UserController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [UserController::class, 'update'])->name('update');
+    Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
 });
 
-
-
-
-// use App\Http\Controllers\ReservationController;
-
-// Route::get('/pembayaran', [ReservationController::class, 'pembayaran'])->name('pembayaran');
-// Route::post('/pembayaran', [ReservationController::class, 'store'])->name('reservation.store');
-
-use App\Http\Controllers\PenitipanController;
-
-Route::resource('penitipan', PenitipanController::class);
-
-
-Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Menampilkan semua users
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create'); // Form untuk menambahkan users
-Route::post('/users', [UserController::class, 'store'])->name('users.store'); // Menyimpan users baru
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit'); // Form untuk mengedit users
-Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update'); // Mengupdate users yang sudah ada
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy'); // Menghapus vendor
-
-use App\Http\Controllers\RoleController;
-
-Route::get('/role', [RoleController::class, 'index'])->name('role.index'); // Menampilkan semua role
-Route::get('/role/create', [RoleController::class, 'create'])->name('role.create'); // Form untuk menambahkan role
-Route::post('/role', [RoleController::class, 'store'])->name('role.store'); // Menyimpan role baru
-Route::get('/role/{id}/edit', [RoleController::class, 'edit'])->name('role.edit'); // Form untuk mengedit role
-Route::put('/role/{id}', [RoleController::class, 'update'])->name('role.update'); // Mengupdate role yang sudah ada
-Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('role.destroy'); // Menghapus vendor
-
-
-
-
-
-
-
-
-Route::middleware(['auth'])->group(function () {
-    // Daftar penitipan hewan
-    Route::get('/penitipan', [PenitipanController::class, 'index'])->name('penitipan.index');
-
-    // Form untuk menambah penitipan hewan
-    Route::get('/penitipan/create', [PenitipanController::class, 'create'])->name('penitipan.create');
-
-    // Proses penyimpanan data penitipan hewan
-    Route::post('/penitipan', [PenitipanController::class, 'store'])->name('penitipan.store');
-
-    Route::delete('/penitipan/{id}', [PenitipanController::class, 'destroy'])->name('penitipan.destroy');
+// Role Management Routes
+Route::prefix('role')->name('role.')->group(function () {
+    Route::get('/', [RoleController::class, 'index'])->name('index');
+    Route::get('/create', [RoleController::class, 'create'])->name('create');
+    Route::post('/', [RoleController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [RoleController::class, 'update'])->name('update');
+    Route::delete('/{id}', [RoleController::class, 'destroy'])->name('destroy');
 });
 
+// Penitipan Hewan Routes
+Route::middleware(['auth'])->prefix('penitipan')->name('penitipan.')->group(function () {
+    Route::get('/', [PenitipanController::class, 'index'])->name('index');
+    Route::get('/create', [PenitipanController::class, 'create'])->name('create');
+    Route::post('/', [PenitipanController::class, 'store'])->name('store');
+    Route::delete('/{id}', [PenitipanController::class, 'destroy'])->name('destroy');
+});
 
-use App\Http\Controllers\ReservationListController;
-
+// Reservation List and Payment Confirmation
 Route::get('/reservasi', [ReservationListController::class, 'index'])->name('reservasi.index');
 Route::post('/reservasi/{id}/konfirmasi', [ReservationListController::class, 'confirmPayment'])->name('reservasi.konfirmasi');
 
-use App\Http\Controllers\KandangController;
-use App\Http\Controllers\PaymentController;
-
+// Kandang Routes
 Route::get('/kandang', [KandangController::class, 'index'])->name('kandang.index');
 Route::post('/kandang/{kandang_no}/assign', [KandangController::class, 'assign'])->name('kandang.assign');
 
-Route::get('/form-bukti-pembayaran', function () {
-    return view('emails.payment_notification');
-})->name('form.payment');
+// Product Management
+Route::resource('products', ProductController::class);
 
-// Proses unggahan bukti pembayaran
-Route::middleware('auth')->post('/upload-bukti-pembayaran', [PaymentController::class, 'BuktiPembayaran'])
-    ->name('upload.payment');
+use App\Http\Controllers\BuktiController;
+
+Route::get('/bukti', [BuktiController::class, 'index'])->name('products.bukti');
+
+use App\Http\Controllers\AdminController;
+
+Route::get('/admin/login', function () {
+    return view('admin.login');
+})->name('admin.login');
+
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+

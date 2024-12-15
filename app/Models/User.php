@@ -13,7 +13,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'role', // Tambahkan role jika belum ada
+        'role', 
     ];
     
 

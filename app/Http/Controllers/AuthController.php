@@ -47,9 +47,6 @@ public function login(Request $request)
         }
 
         // Redirect berdasarkan role
-        if (in_array($user->role, ['admin', 'pegawai'])) {
-            return redirect()->route('dashboard'); // Route untuk admin dan pegawai
-        }
 
         // Default redirect untuk selain admin/pegawai
         return redirect()->route('reservation.index'); // Route default
