@@ -22,7 +22,7 @@
             justify-content: center;
             text-align: center;
             height: 75vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
                 url('http://www.pixelstalk.net/wp-content/uploads/2016/04/Winter-dog-snowflakes-wallpaper-HD.jpg') no-repeat center/cover;
             color: white;
         }
@@ -55,7 +55,7 @@
             </h1>
             <div class="bg-[#ff5733] p-6 mt-4 max-w-md mx-auto">
              <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+                Selamat datang di Golden Pet Care, tempat di mana hewan peliharaan Anda akan merasa seperti di rumah sendiri dengan perhatian dan kasih sayang yang sepenuh hati.
              </p>
             </div>
            </div>
@@ -91,7 +91,7 @@
 
 
     <!-- Features Section -->
-    
+
 @include('layout.kata')
 <div class="bg-[#ff5733] py-12">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">

@@ -9,7 +9,7 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
-    
+
    .rotate-text {
             writing-mode: vertical-rl;
             transform: rotate(180deg);
@@ -34,7 +34,9 @@
      </span>
     </h1>
     <p class="mt-4 text-gray-600">
-     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Selamat datang di Golden Pet Care, tempat di mana hewan peliharaan Anda akan mendapatkan perhatian, kenyamanan, dan kasih sayang yang mereka butuhkan. Kami memahami betapa berharganya hewan peliharaan bagi Anda, dan kami berkomitmen untuk memberikan pengalaman penitipan yang aman dan menyenangkan.
+
+        Di Golden Pet Care, kami menawarkan berbagai layanan penitipan yang dirancang untuk memenuhi kebutuhan spesifik hewan peliharaan Anda. Mulai dari tempat tidur yang nyaman hingga ruang bermain yang luas, kami memastikan hewan peliharaan Anda merasa seperti di rumah sendiri. Dengan pengawasan 24 jam, fasilitas yang lengkap, dan layanan yang dapat disesuaikan, kami memastikan setiap hewan merasa bahagia dan tenang selama menginap.
     </p>
    </div>
   </section>
@@ -45,11 +47,14 @@
       Who We Are ?
      </h2>
      <p class="mt-4">
-      Honec ut molestie turpis, elementum tempor metus. Vestibulum non nibh porttitor, eleifend purus eu, pul vinar orci. Quisque a gravida lorem, eu lobortis magna. Nulla auctor urna quis erat facilisis pretium. Cras facilisis risus sed mauris gravida, ideate vestibulum erat dictum. Nam in ante massa. Integer ultricies libero lorem, egestas dictum augue aliquam. Pellentesque habitant morbi tristique senectus.
+        Kami adalah tim pecinta hewan yang berdedikasi, dengan pengalaman luas dalam merawat dan menjaga kesejahteraan hewan peliharaan. Di Golden Pet Care, kami tidak hanya menyediakan tempat penitipan, tetapi juga menciptakan lingkungan yang penuh kasih, aman, dan nyaman bagi teman berbulu Anda.
+
+Staf kami terdiri dari para profesional yang mengerti pentingnya kebutuhan emosional dan fisik hewan peliharaan. Dengan pengawasan sepanjang waktu dan perhatian penuh pada setiap detail, kami memastikan setiap hewan peliharaan mendapatkan perhatian khusus. Dari fasilitas modern hingga layanan yang disesuaikan, kami memastikan hewan peliharaan Anda merasa nyaman dan dicintai.
+
+Di Golden Pet Care, kami lebih dari sekedar hotel hewan – kami adalah keluarga yang peduli dan berkomitmen memberikan pengalaman penitipan yang tak terlupakan bagi hewan peliharaan Anda.
+
      </p>
-     <p class="mt-4">
-      Elementum tempor metus donec ut molestie turpis. Vestibulum non nibh porttitor, eleifend purus eu, pulvinar orci. Quisque a gravida lorem, eu lobortis magna. Nulla auctor urnade quisate facilisis pretium. Cras facilisis risus sed mauris gravida, idealeta vestibulum erat dictum. Nam in ante massa. Integer ultricies libero lorem.once ut molestie turpis, elementum tempor metus.
-     </p>
+
     </div>
     <div class="md:w-1/2">
      <img alt="A group of diverse people working together in an office setting" height="400" src="https://storage.googleapis.com/a1aa/image/f9XkAWoqGfv72kFiwvehGzMNZiVAF1UA7hqHFmiDmeQb8dZPB.jpg" width="600"/>
