@@ -19,14 +19,15 @@
        </span>
       </h2>
       <p class="text-gray-400 mb-4">
-       Nam liber tempor cum soluta nobis amet eleifend option congue nihil imperdiet doming id quod mazim placerat feaaacer possim assum. Typi non habent clewar itatem insitam option.
+        Di Golden Pet Care, kami menyediakan tempat aman, nyaman, dan penuh kasih sayang untuk hewan peliharaan Anda. Dengan perawatan terbaik, mereka akan merasa seperti di rumah sendiri.
+        "Golden Pet Care - Your Pet's Second Home."
       </p>
       <div class="flex items-center">
        <img alt="Pet House Logo" class="mr-2" height="40" src="https://storage.googleapis.com/a1aa/image/DJGdeL824U1PYKuuUQ9hBfut1gUZ57wlo7axBe0k8Eo0B9snA.jpg" width="40"/>
        <span class="font-bold text-white">
-        PET
+        GOLDEN
         <span class="text-gray-400">
-         HOUSE
+         PET CARE
         </span>
        </span>
       </div>
@@ -51,9 +52,6 @@
        </li>
        <li>
         Getting Started
-       </li>
-       <li>
-        Joomla!
        </li>
        <li>
         Options
@@ -92,23 +90,21 @@
        </span>
       </h2>
       <p class="text-gray-400 mb-4">
-       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.
+
       </p>
-      <p class="flex items-center mb-2">
-       <i class="fas fa-envelope text-orange-500 mr-2">
-       </i>
-       info@pethouse.com
-      </p>
-      <p class="flex items-center">
-       <i class="fas fa-phone text-orange-500 mr-2">
-       </i>
-       +1800 123 456
-      </p>
+      <p class="flex items-center mb-2 text-white">
+        <i class="fas fa-envelope text-orange-500 mr-2"></i>
+        goldenpetcare@gmail.com
+     </p>
+     <p class="flex items-center text-white">
+        <i class="fas fa-phone text-orange-500 mr-2"></i>
+        (+62) 812-3456-7890
+     </p>
      </div>
     </div>
     <div class="mt-8 flex justify-between items-center">
      <p class="text-gray-400">
-      Copyright 2017 © Pet House All Rights Reserved.
+      Copyright 2017 © Golden- All Rights Reserved.
      </p>
      <div class="flex space-x-4">
       <a href="{{ route('admin.login') }}" class="text-white font-bold hover:text-orange-500">Admin</a>
