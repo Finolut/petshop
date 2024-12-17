@@ -73,8 +73,9 @@
             <img src="https://pethouse.joomlatema.net/images/dogs.jpg" alt="Pet House">
         </div>
         <div class="text-container">
-            <h1>Pet House Is Caring Us, That’s Why We Are So Naughty</h1>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <h1>Pet House Menyayangi Kami,
+                Itulah Sebabnya Kami Begitu Ceria</h1>
+            <p>Kami tetap aktif dan ceria berkat perhatian penuh dari Pet House. Dengan kenyamanan, kasih sayang, dan perawatan terbaik, kami bisa bermain sepuasnya dan tetap sehat!</p>
         </div>
     </div>
 

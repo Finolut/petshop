@@ -104,30 +104,89 @@
 
     <!-- Testimonial Section -->
     <section class="testimonial-section">
-        <h1 class="testimonial-title">Testimonials</h1>
+        <h1 class="testimonial-title">Testimoni</h1>
         <div class="testimonial-slider" id="testimonialSlider">
+            <!-- Testimonial 1 -->
             <div class="testimonial">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User 1">
                 <div class="testimonial-content">
                     <h3>Steven Sample</h3>
-                    <p>“Pet House is caring for our pets professionally. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet ligula vitae purus.”</p>
+                    <p>“Pet House merawat hewan peliharaan kami dengan profesional. Saya sangat puas dengan perhatian dan layanan mereka yang luar biasa.”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
                 </div>
             </div>
+    
+            <!-- Testimonial 2 -->
             <div class="testimonial">
                 <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User 2">
                 <div class="testimonial-content">
                     <h3>Anna Smith</h3>
-                    <p>“I am very happy with their service. Their staff is friendly and professional. Highly recommend to anyone with pets.”</p>
+                    <p>“Saya sangat senang dengan layanan mereka. Stafnya ramah dan profesional. Sangat direkomendasikan untuk siapa pun yang memiliki hewan peliharaan.”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
                 </div>
             </div>
+    
+            <!-- Testimonial 3 -->
             <div class="testimonial">
                 <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User 3">
                 <div class="testimonial-content">
                     <h3>Michael Brown</h3>
-                    <p>“Amazing place for pets! They truly care and provide the best service. My dog loves visiting them!”</p>
+                    <p>“Tempat yang luar biasa untuk hewan peliharaan! Mereka benar-benar peduli dan memberikan layanan terbaik. Anjing saya senang sekali berkunjung ke sini!”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+    
+            <!-- Testimonial 4 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="User 4">
+                <div class="testimonial-content">
+                    <h3>Linda Taylor</h3>
+                    <p>“Hewan peliharaan saya mendapatkan perawatan yang sempurna. Tim Pet House sangat perhatian dan detail dalam memberikan layanan.”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+    
+            <!-- Testimonial 5 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/72.jpg" alt="User 5">
+                <div class="testimonial-content">
+                    <h3>John Doe</h3>
+                    <p>“Pelayanan yang luar biasa! Hewan peliharaan saya selalu pulang dengan senang dan sehat.”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+    
+            <!-- Testimonial 6 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="User 6">
+                <div class="testimonial-content">
+                    <h3>Sarah Johnson</h3>
+                    <p>“Sungguh pengalaman yang menyenangkan! Staf sangat ramah, dan saya merasa aman menitipkan kucing saya di sini.”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+    
+            <!-- Testimonial 7 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="User 7">
+                <div class="testimonial-content">
+                    <h3>David Williams</h3>
+                    <p>“Rekomendasi terbaik! Fasilitas yang nyaman dan layanan yang profesional. Saya sangat puas.”</p>
+                    <div>⭐⭐⭐⭐⭐</div>
                 </div>
             </div>
         </div>
+    
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" id="prevBtn">&#10094;</button>
+            <button class="control-btn" id="nextBtn">&#10095;</button>
+        </div>
+    
+        <!-- Dots -->
+        <div class="dots" id="dotsContainer"></div>
+    </section>
+    
 
         <!-- Controls -->
         <div class="controls">
