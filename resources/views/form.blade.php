@@ -5,40 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penitipan Hewan</title>
     <style>
+        /* General Body Styling */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         .container {
-            max-width: 800px;
-            margin: auto;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Header Styling */
+        h2 {
+            text-align: center;
+            color: #FF5900;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Table Styling */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         table th, table td {
-            border: 1px solid #ddd;
+            border: 1px solid #e1e1e1;
             padding: 8px;
-            text-align: left;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         table th {
-            background-color: #f4f4f4;
+            background-color: #FF5900;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Form Styling */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .form-group label {
             display: block;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 5px;
+            color: #555;
+            font-size: 0.9rem;
         }
 
         .form-group input,
@@ -46,23 +80,38 @@
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #FF5900;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        button:hover {
+            background-color: #FF5900;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 15px;
-            font-size: 14px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
             color: #fff;
-            background-color: #007bff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
+            transition: background-color 0.3s ease;
         }
 
         .btn-success {
@@ -83,7 +132,7 @@
             <thead>
                 <tr>
                     <th>Nama Hewan</th>
-                    <th>pemilik</th>
+                    <th>Pemilik</th>
                     <th>Jenis</th>
                     <th>Gender</th>
                     <th>Ras</th>
@@ -147,9 +196,9 @@
                 <label for="warna">Warna</label>
                 <input type="text" name="warna" id="warna" required>
             </div>
-            <a href="{{ route('ucapan') }}" class="btn btn-primary btn-block">
+            <div class="form-group">
                 <button type="submit">Kirim</button>
-              </a>
+            </div>
         </form>
         @endif
     </div>

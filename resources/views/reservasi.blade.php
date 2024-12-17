@@ -8,29 +8,57 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         .form-container {
-            width: 400px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+        }
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .btn-orange {
+            background-color: #FF5900;
+            border-color: #FF5900;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-orange:hover {
+            background-color: #FF5900;
+            border-color: #FF5900;
+            color: white;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2 class="text-center">Reservasi</h2>
+        <h2 class="text-center">Form Reservasi</h2>
         <form id="reservation-form" action="{{ route('reservation.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">Nama</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Masukkan nama Anda">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="example@gmail.com">
             </div>
             <div class="form-group">
                 <label for="kelas">Pilih Kelas</label>
@@ -49,7 +77,7 @@
                 <label for="total">Total Harga</label>
                 <input type="text" class="form-control" id="total" readonly>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Checkout</button>
+            <button type="submit" class="btn btn-orange btn-block">Checkout</button>
         </form>
     </div>
 
@@ -68,33 +96,31 @@
         daysInput.addEventListener('input', calculateTotal);
 
         document.getElementById('reservation-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
-    const formData = new FormData(this);
+            const formData = new FormData(this);
 
-    fetch("{{ route('reservation.store') }}", {
-        method: "POST",
-        headers: {
-            "X-CSRF-TOKEN": "{{ csrf_token() }}"
-        },
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Reservasi berhasil!');
-            window.location.href = "{{ route('products.index') }}"; // Redirect to products.index after success
-        } else {
-            alert('Terjadi kesalahan. Silakan coba lagi.');
-        }
-    })
-    .catch(error => {
-        alert('Terjadi kesalahan: ' + error);
-    });
-});
+            fetch("{{ route('reservation.store') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Reservasi berhasil!');
+                    window.location.href = "{{ route('products.index') }}";
+                } else {
+                    alert('Terjadi kesalahan. Silakan coba lagi.');
+                }
+            })
+            .catch(error => {
+                alert('Terjadi kesalahan: ' + error);
+            });
+        });
 
-
-        // Initialize total on page load
         calculateTotal();
     </script>
 </body>
