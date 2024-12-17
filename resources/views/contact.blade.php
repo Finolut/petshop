@@ -112,8 +112,7 @@
         <div class="about-section">
             <h2>About <span class="highlight">PetHouse</span></h2>
             <p>
-            Kami menyediakan layanan perawatan hewan yang profesional dan penuh kasih sayang untuk teman-teman berbulu Anda.
-            Kami berkomitmen untuk memberikan kenyamanan dan keamanan terbaik untuk setiap hewan yang kami rawat.
+Kami menyediakan layanan perawatan hewan yang profesional dan penuh kasih sayang untuk teman-teman berbulu Anda. Kami berkomitmen untuk memberikan kenyamanan dan keamanan terbaik untuk setiap hewan yang kami rawat.
 
             </p>
             <address>
