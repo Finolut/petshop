@@ -22,6 +22,7 @@ public function store(Request $request)
         'email' => 'required|email|max:255',
         'days' => 'required|integer|min:1',
         'kelas' => 'required|in:basic plan,medium plan,pro plan,vip plan',
+        'start_date' => 'required|date',
     ]);
 
     $kelasHarga = [
@@ -39,14 +40,15 @@ public function store(Request $request)
         'days' => $request->days,
         'kelas' => $request->kelas,
         'total_harga' => $totalHarga,
+        'start_date' => $request->start_date,
         'status' => 'belum bayar',
         'created_at' => now(),
         'updated_at' => now(),
     ]);
 
-    // Return JSON response for AJAX success
     return response()->json(['success' => true]);
 }
+
 
 
 }

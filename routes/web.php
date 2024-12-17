@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     ReservationController,
     ReservationListController,
     KandangController,
-    ProductController
+    ProductController,
+    AcceptedReservationController
 };
 
 // Public Routes
@@ -93,3 +94,6 @@ Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.logi
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
+
+Route::get('/reservasi/accepted', [AcceptedReservationController::class, 'index'])->name('reservasi.accepted');
+Route::resource('accepted', AcceptedReservationController::class);

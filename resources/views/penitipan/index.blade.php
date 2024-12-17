@@ -39,7 +39,7 @@
                                     <td>{{ $hewan->ras }}</td>
                                     <td>{{ $hewan->ukuran }}</td>
                                     <td>{{ $hewan->warna }}</td>
-                                    <td>{{ $hewan->kandang_no ? 'Kandang #' . $hewan->kandang_no : 'Belum di tambahkan' }}</td>
+                                    <td>{{ $hewan->kandang_no ? 'Kandang ' . $hewan->kandang_no : 'Belum di tambahkan' }}</td>
                                     <td>
                                         <!-- Form Hapus -->
                                         <form action="{{ route('penitipan.destroy', $hewan->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">

@@ -10,9 +10,12 @@ class ReservationListController extends Controller
     // Menampilkan daftar reservasi
     public function index()
     {
-        $reservations = DB::table('reservasi')->get();
+        $reservations = DB::table('reservasi')
+            ->select('id', 'name', 'email', 'kelas', 'days', 'total_harga', 'start_date', 'created_at', 'status_pembayaran')
+            ->get();
         return view('reservation.index', compact('reservations'));
     }
+    
 
     // Konfirmasi pembayaran
     public function confirmPayment($id)

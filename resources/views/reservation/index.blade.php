@@ -18,6 +18,7 @@
                     <th>Kelas</th>
                     <th>Jumlah Hari</th>
                     <th>Total Harga</th>
+                    <th>Tanggal Mulai Booking</th>
                     <th>Tanggal Reservasi</th>
                     <th>Status Pembayaran</th>
                     <th>Aksi</th>
@@ -31,6 +32,7 @@
                         <td>{{ $reservation->kelas }}</td>
                         <td>{{ $reservation->days }}</td>
                         <td>Rp {{ number_format($reservation->total_harga, 0, ',', '.') }}</td>
+                        <td>{{ $reservation->start_date }}</td>
                         <td>{{ $reservation->created_at }}</td>
                         <td>{{ $reservation->status_pembayaran }}</td>
                         <td>
@@ -48,4 +50,4 @@
             </tbody>
         </table>
     </div>
-    @endsection
+@endsection

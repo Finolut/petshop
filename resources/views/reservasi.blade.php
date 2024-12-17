@@ -77,6 +77,11 @@
                 <label for="total">Total Harga</label>
                 <input type="text" class="form-control" id="total" readonly>
             </div>
+            <div class="form-group">
+                <label for="start_date">Tanggal Mulai Booking</label>
+                <input type="date" class="form-control" id="start_date" name="start_date" required>
+            </div>
+            
             <button type="submit" class="btn btn-orange btn-block">Checkout</button>
         </form>
     </div>

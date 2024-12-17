@@ -5,13 +5,13 @@
         <div class="bg-white p-5 rounded shadow">
             <h2 class="text-center mb-4">Daftar Kandang</h2>
             <div class="row">
-                @for($i = 1; $i <= 40; $i++)
+                @for($i = 1; $i <= 30; $i++)
                     @php
                         $kandang = $penitipan->firstWhere('kandang_no', $i);
                     @endphp
                     <div class="col-md-4 mb-4">
                         <div class="kandang {{ $kandang ? 'occupied' : 'available' }} border p-3 rounded">
-                            <h5 class="text-center">Kandang #{{ $i }}</h5>
+                            <h5 class="text-center">Kandang {{ $i }}</h5>
                             @if($kandang)
                                 <p>Nama Hewan: {{ $kandang->nama_hewan }}</p>
                                 <p>Jenis: {{ $kandang->jenis }}</p>
