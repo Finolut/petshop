@@ -97,22 +97,22 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
         <div>
             <i class="fas fa-cat text-6xl"></i>
-            <p class="text-4xl font-bold mt-4">175</p>
+            <p class="text-4xl font-bold mt-4">145</p>
             <p class="text-xl font-semibold">HAPPY CATS</p>
         </div>
         <div>
             <i class="fas fa-dog text-6xl"></i>
-            <p class="text-4xl font-bold mt-4">240</p>
+            <p class="text-4xl font-bold mt-4">170</p>
             <p class="text-xl font-semibold">SUPER DOGS</p>
         </div>
         <div>
             <i class="fas fa-award text-6xl"></i>
-            <p class="text-4xl font-bold mt-4">45</p>
+            <p class="text-4xl font-bold mt-4">2</p>
             <p class="text-xl font-semibold">AWARDS</p>
         </div>
         <div>
             <i class="fas fa-crown text-6xl"></i>
-            <p class="text-4xl font-bold mt-4">15</p>
+            <p class="text-4xl font-bold mt-4">5</p>
             <p class="text-xl font-semibold">BUSINESS YEARS</p>
         </div>
     </div>
