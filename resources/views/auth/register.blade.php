@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('https://i.pinimg.com/1200x/f6/51/19/f651198770f6d80fc8bbc9d8d5830b46.jpg');
+            background-image: url('https://i.pinimg.com/1200x/f6/51/19/f651198770f6d80fc8bbc9d8d5830b46.jpggi');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
