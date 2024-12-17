@@ -87,7 +87,11 @@
             <span class="text-orange-500">Us</span>
         </h1>
         <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Alamat: Jl. Mulyorejo No. 1, Mulyorejo, Surabaya, Jawa Timur 60115, Indonesia
+            Telepon: (+62) 812-3456-7890
+            Email: goldenpetcare@gmail.com
+            Jam Operasional: Senin - Sabtu: 08.00 - 17.00
+            Media Sosial: Instagram @goldenpetcare
         </p>
     </section>
 
@@ -108,14 +112,17 @@
         <div class="about-section">
             <h2>About <span class="highlight">PetHouse</span></h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Kami menyediakan layanan perawatan hewan yang profesional dan penuh kasih sayang untuk teman-teman berbulu Anda.
+            Kami berkomitmen untuk memberikan kenyamanan dan keamanan terbaik untuk setiap hewan yang kami rawat.
+
             </p>
             <address>
-                <strong>PetHouse, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                <span>P:</span> (123) 456-7890<br>
-                <a href="http://www.pet-house.com" target="_blank">www.pet-house.com</a>
+            <strong>Golden Pet Care</strong><br>
+            Universitas Airlangga (UNAIR) Kampus C<br>
+            Jl. Mulyorejo No. 1, Mulyorejo, Surabaya, Jawa Timur 60115, Indonesia<br>
+            <span>P:</span> (+62) 812-3456-7890<br>
+            <a href="http://www.goldenpetcare.com" target="_blank">www.goldenpetcare.com</a>
+
             </address>
         </div>
 
@@ -123,17 +130,17 @@
             <form>
                 <label for="name">Name *</label>
                 <input type="text" id="name" name="name" required>
-                
+
                 <label for="email">Email *</label>
                 <input type="email" id="email" name="email" required>
-                
+
                 <label for="subject">Subject *</label>
                 <input type="text" id="subject" name="subject" required>
-                
+
                 <label for="message">Message *</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-                
-                
+
+
                 <button type="submit">Send Email</button>
             </form>
         </div>
